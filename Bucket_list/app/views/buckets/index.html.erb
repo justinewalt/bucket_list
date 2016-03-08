@@ -1,8 +1,11 @@
 <h1>All Buckets</h1>
 <hr />
-
+<% if @buckets.any? %>
 <ul>
 	<% @buckets.each do |bucket| %>
 		<li><%= link_to "#{bucket.category}", bucket_path(bucket) %> | <%= link_to 'Edit Buket', edit_bucket_path(bucket) %> | <%= link_to 'Delete Buket', bucket_path(bucket), method: :delete %> </li>
 	<% end %>
 </ul>
+<% else %>
+	<h3>There are no buckets. Please create a bucket.</h3>
+<% end %>
