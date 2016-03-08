@@ -1,2 +1,11 @@
 <%= button_to 'Log Out', destroy_user_session_path, method: :delete %>
-<h1>Welcome to BUKET, <%= current_user.first_name %></h1>
+<h1>Welcome to BUKET, <%= current_user.first_name %>!</h1>
+<h3>Here you can create bucket lists and keep track of them in an easy way. Get started now!</h3>
+<%= link_to 'New Buket', new_bucket_path %> 
+
+ <%# if @buckets.any? %>
+ 	<%# @buckets.each do |link| %>
+ <%# link_to 'View All Buckets', buckets_path(current_user) %>
+ <%# end %> 
+
+ <%#s end %>
