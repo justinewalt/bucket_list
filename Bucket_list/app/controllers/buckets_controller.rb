@@ -2,6 +2,7 @@ class BucketsController < ApplicationController
 	before_action :bucket, except: [:new, :create, :index]
 
   def index
+  flash[:sucess] = "You have been signed in"
  	@buckets = Bucket.all
   end
 
