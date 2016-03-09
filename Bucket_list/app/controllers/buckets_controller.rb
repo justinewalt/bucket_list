@@ -27,6 +27,12 @@ class BucketsController < ApplicationController
   end
 
   def update
+    @bucket = Bucket.find(params[:id])
+    if @bucket.update(bucket_params)
+      redirect_to buckets_path
+    else
+      render :edit
+    end
   end
 
   def destroy
