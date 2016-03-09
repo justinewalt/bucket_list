@@ -50,4 +50,6 @@ class BucketsController < ApplicationController
   	def bucket
   		@bucket = Bucket.find(params[:id])
   	end
+
+    
 end

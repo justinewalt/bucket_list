@@ -1,5 +1,6 @@
 class ActivitiesController < ApplicationController
-
+  before_action :bucket, only: [:destroy, :edit, :update]
+  before_action :activity, only: [:destroy, :edit, :update]
 
   def edit
   end
@@ -32,6 +33,7 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
+    @activity = Activity.find(params[:id])
   	@activity.destroy
   	redirect_to buckets_path(@bucket)
   end
@@ -43,11 +45,11 @@ class ActivitiesController < ApplicationController
   	end
 
   	def bucket
-  		@bucket = Bucket.find(params[:category_id])
-  	end
+  		@bucket = Bucket.find(params[:bucket_id])
+  	end  
 
-  	def activities
-  		@activity = @bucket.activity.find(params[:id])
+  	def activity
+  		@activity = @bucket.activities.find(params[:id])
   	end
 
 end
