@@ -5,43 +5,49 @@ class ActivitiesController < ApplicationController
   end
 
   def update
-  	if @activities.update(activities_params)
-  		redirect_to buckets_path(@category, @activities)
+  	if @activity.update(activity_params)
+  		redirect_to buckets_path(@bucket, @activity)
   	else
   		render :edit
   	end
   end
 
   def new
-  	@activities = Activity.new
+    @bucket = Bucket.find(params[:bucket_id])
+    @activity = Activity.new
   end
 
   def create
-  	@activities = @category.activities.new(activities_params)
-  	if @activities.save
-  		redirect_to buckets_path(@category)
+    @bucket = Bucket.find(params[:bucket_id])
+  	@activity = @bucket.activities.new(activity_params)
+    
+    # @activity = Activity.new(activity_params)
+    # @activity.bucket_id = params[:bucket_id]
+    
+  	if @activity.save
+  		redirect_to bucket_path(@bucket)
   	else
   		render :new
   	end
   end
 
   def destroy
-  	@activities.destroy
-  	redirect_to buckets_path(@category)
+  	@activity.destroy
+  	redirect_to buckets_path(@bucket)
   end
 
   private
 
-  	def activities_params
-  		params.require(:activities).permit(:name)
+  	def activity_params
+  		params.require(:activity).permit(:name)
   	end
 
-  	def category
-  		@category = Category.find(params[:category_id])
+  	def bucket
+  		@bucket = Bucket.find(params[:category_id])
   	end
 
   	def activities
-  		@activities = @category.activities.find(params[:id])
+  		@activity = @bucket.activity.find(params[:id])
   	end
 
 end

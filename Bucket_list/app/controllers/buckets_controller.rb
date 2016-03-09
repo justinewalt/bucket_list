@@ -20,6 +20,7 @@ class BucketsController < ApplicationController
   end
 
   def show
+    @activities = @bucket.activities
   end
 
   def edit
@@ -36,7 +37,7 @@ class BucketsController < ApplicationController
   private
 
   	def bucket_params
-  		params.require(:bucket).permit(:category)
+  		params.require(:bucket).permit(:category, :activities)
 
   	end
 

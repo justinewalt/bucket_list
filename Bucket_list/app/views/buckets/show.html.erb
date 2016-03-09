@@ -1,1 +1,11 @@
-<h1><%= @bucket %></h1>
+<h1><%= @bucket.category %></h1>
+
+<ul>
+	<% @activities.each do |activity| %>
+		<li>
+			<%= activity.name 	%>
+		</li>
+	<% end %>
+</ul>
+
+<%= link_to 'Create New Activity', new_bucket_activity_path(@bucket.id) %> 
