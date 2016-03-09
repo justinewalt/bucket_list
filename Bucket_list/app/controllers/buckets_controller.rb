@@ -24,11 +24,7 @@ class BucketsController < ApplicationController
   end
 
   def edit
-  	if @bucket.update(@bucket)
-  		redirect_to bucket_path(@bucket)
-  	else
-  		render :edit
-  	end
+
   end
 
   def update

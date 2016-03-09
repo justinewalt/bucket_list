@@ -2,22 +2,22 @@
 <html>
 <head>
   <title>BucketList</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="#42a5f5 blue lighten-1">
  <nav>
     <div class="nav-wrapper z-depth-3">
       <a href="#" class="brand-logo">Buket</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="sass.html">LOGGIN</a></li>
-        <li><a href="badges.html">TEST</a></li>
-        <li><a href="collapsible.html">NEW BUKET</a></li>
+        <li><%= link_to 'LOG OUT', destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to 'NEW BUKET', new_bucket_path %></li>
       </ul>
     </div>
   </nav>
-  <div class="container">
+  <div class="container full-height blue lighten-3">
 	<%= yield %>
   </div>
 <footer>
