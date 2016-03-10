@@ -1,22 +1,24 @@
-<h1>All Buckets</h1>
-<hr />
-<% if @buckets.any? %>
+<div class="col m10 offset-m1">
+	<h1>All Buckets</h1>
+	<hr />
+	<% if @buckets.any? %>
 
-<div class="row">
-	<% @buckets.each do |bucket| %>
-		<div class="col s12 m6 l3">
-			<div class="card blue darken-1 small">
-				<div class="card-content white-text">
-					<span class="card-title"><%= link_to bucket.category, bucket_path(bucket), class: "bucket-title-color" %></span> 
-				</div>
-				<div class="card-action">
-					<%= link_to 'Edit', edit_bucket_path(bucket) %>
-					<%= link_to 'Delete', bucket_path(bucket), method: :delete %>
+	<div class="row">
+		<% @buckets.each do |bucket| %>
+			<div class="col s12 m6 l3">
+				<div class="card blue darken-1 small">
+					<div class="card-content white-text">
+						<span class="card-title"><%= link_to bucket.category, bucket_path(bucket), class: "bucket-title-color" %></span> 
+					</div>
+					<div class="card-action">
+						<%= link_to 'Edit', edit_bucket_path(bucket) %>
+						<%= link_to 'Delete', bucket_path(bucket), method: :delete %>
+					</div>
 				</div>
 			</div>
-		</div>
-	<% end %>
-		<% else %>
-			<h3>There are no buckets. Please create a bucket.</h3>
 		<% end %>
+			<% else %>
+				<h3>There are no buckets. Please create a bucket.</h3>
+			<% end %>
+	</div>
 </div>
