@@ -26,11 +26,26 @@
       <%= yield %>
     </div>
   </div>
-<footer>
-<hr>
-<div class="white-text">
-	<%= link_to 'Main Page', buckets_path %> | <%= link_to 'New Buket', new_bucket_path %> | <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
-</div>
+<footer class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m8 l6">
+      </div>
+      <div class="col 14 offset-12 s12">
+        <ul>
+          <li><%= link_to "Buket's Page", buckets_path, class: 'footer-link-color'%></li>
+          <li><%= link_to 'New Buket', new_bucket_path, class: 'footer-link-color'%></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    © 2016 Karson & Justin
+    <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'footer-link-color logout-align-right'%>
+    </div>
+  </div>
 </footer>
 </body>
 </html>
+	
