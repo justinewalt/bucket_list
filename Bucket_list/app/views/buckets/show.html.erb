@@ -5,6 +5,8 @@
 
 
 	<div class="row">
+				<%= will_paginate @activities %>
+
 		<% @activities.each do |activity| %>
 			<div class="col s12 m6 l3">
 				<div class="card blue darken-1 small">

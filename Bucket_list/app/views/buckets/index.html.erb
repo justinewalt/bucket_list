@@ -4,6 +4,8 @@
 	<% if @buckets.any? %>
 
 	<div class="row">
+			<%= will_paginate @buckets %>
+
 		<% @buckets.each do |bucket| %>
 			<div class="col s12 m6 l3">
 				<div class="card blue darken-1 small">

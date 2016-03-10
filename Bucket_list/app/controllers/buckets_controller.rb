@@ -4,6 +4,8 @@ class BucketsController < ApplicationController
   def index
   flash[:sucess] = "You have been signed in"
  	@buckets = Bucket.all
+  @buckets = Bucket.paginate(page: params[:page], per_page: 4) 
+
   end
 
   def new
@@ -21,6 +23,8 @@ class BucketsController < ApplicationController
 
   def show
     @activities = @bucket.activities
+    @activities = @bucket.activities.paginate(page: params[:page], per_page: 4) 
+
   end
 
   def edit
