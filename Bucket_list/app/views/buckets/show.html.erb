@@ -1,13 +1,11 @@
 <h1><%= @bucket.category %></h1>
-	<div class="waves-effect waves-light btn">
-		<%= link_to 'New', new_bucket_activity_path(@bucket) %>
-	</div>
+<%= button_to 'New', new_bucket_activity_path(@bucket), class: 'btn waves-effect waves-light', method: :get %>
 
 
 <div class="row">
 	<% @activities.each do |activity| %>
 		<div class="col s12 m6 l3">
-			<div class="card blue darken-1">
+			<div class="card blue darken-1 small">
 				<div class="card-content white-text">
 					<span class="card-title"><%= activity.name %></span>
 				</div>
