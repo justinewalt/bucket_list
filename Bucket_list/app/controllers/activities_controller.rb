@@ -35,7 +35,7 @@ class ActivitiesController < ApplicationController
   def destroy
     @activity = Activity.find(params[:id])
   	@activity.destroy
-  	redirect_to buckets_path(@bucket)
+  	redirect_to bucket_path(@bucket)
   end
 
   private

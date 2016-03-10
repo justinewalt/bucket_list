@@ -12,13 +12,19 @@
     <div class="nav-wrapper z-depth-3">
       <a href="#" class="brand-logo">Buket</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <% if user_signed_in? %>
         <li><%= link_to 'LOG OUT', destroy_user_session_path, method: :delete %></li>
+      <% else %>
+      	<li><%= link_to 'LOG IN', user_session_path %></li>
+      <% end %>
         <li><%= link_to 'NEW BUKET', new_bucket_path %></li>
       </ul>
     </div>
   </nav>
-  <div class="container full-height blue lighten-3 main">
-	<%= yield %>
+  <div class="container full-height blue lighten-3 main z-depth-2">
+    <div class="row">
+      <%= yield %>
+    </div>
   </div>
 <footer class="page-footer">
   <div class="container">
